@@ -529,6 +529,31 @@ section h2 {
   }
 }
 
+/* ===== Document viewer ===== */
+.doc-viewer {
+  max-width: 880px;
+}
+
+.doc-page {
+  margin-bottom: 28px;
+}
+
+.doc-page img {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  border: 1px solid #e3e8f0;
+  box-shadow: 0 8px 28px rgba(19, 28, 63, 0.12);
+}
+
+.doc-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 36px;
+}
+
 /* ===== Provider page tabs ===== */
 .tabs {
   display: flex;
