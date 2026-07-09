@@ -117,12 +117,13 @@ nav ul {
 
 nav a {
   display: block;
-  padding: 9px 15px;
+  padding: 9px 13px;
   color: var(--navy);
   text-decoration: none;
   font-weight: 500;
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   border-radius: 6px;
+  white-space: nowrap;
 }
 
 nav ul a:hover {
@@ -492,6 +493,86 @@ section h2 {
   left: 0;
 }
 
+/* Shop medical supplies */
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 30px 24px;
+}
+
+.shop-card h3 {
+  color: var(--navy);
+  font-size: 1.02rem;
+  margin: 14px 0 4px;
+}
+
+.shop-card .arrow {
+  color: var(--green-dark);
+  transition: transform 0.15s ease;
+  display: inline-block;
+}
+
+.shop-card:hover .arrow {
+  transform: translateX(4px);
+}
+
+.shop-card p {
+  color: var(--gray);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.shop-img {
+  border-radius: 14px;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e3e8f0;
+}
+
+.shop-img svg {
+  width: 58%;
+  height: 58%;
+}
+
+.tint-blue {
+  background: var(--light);
+}
+
+.tint-green {
+  background: #e5f4ea;
+}
+
+.shop-cta {
+  margin-top: 64px;
+  background: var(--light);
+  border-radius: 16px;
+  padding: 44px 30px;
+  text-align: center;
+}
+
+.shop-cta h2 {
+  margin-bottom: 8px;
+}
+
+.shop-cta p {
+  color: var(--gray);
+  max-width: 560px;
+  margin: 0 auto 24px;
+}
+
+.btn.outline-dark {
+  background: transparent;
+  color: var(--navy);
+  border: 1.5px solid var(--navy);
+  margin-left: 10px;
+}
+
+.btn.outline-dark:hover {
+  background: rgba(30, 43, 94, 0.08);
+}
+
 /* Bill pay */
 .pay-grid {
   display: grid;
@@ -633,10 +714,21 @@ footer a {
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1100px) {
   .nav-wrap {
     flex-direction: column;
     gap: 10px;
+  }
+}
+
+@media (max-width: 760px) {
+  nav {
+    flex-direction: column;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .topbar .inner {
