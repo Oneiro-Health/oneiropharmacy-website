@@ -216,5 +216,195 @@
     <p>Licensed 503A Pharmacy &middot; USP &lt;797&gt; &amp; &lt;800&gt; Compliant &middot; DMEPOS Accredited</p>
   </footer>
 
+  <!-- Category guide modal -->
+  <div class="modal-overlay" id="guide-overlay" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="guide-title">
+      <button class="modal-close" id="guide-close" aria-label="Close guide">&times;</button>
+      <p class="eyebrow" id="guide-eyebrow"></p>
+      <h2 id="guide-title"></h2>
+      <p class="guide-desc" id="guide-desc"></p>
+      <h3 class="guide-h">What we provide</h3>
+      <ul class="guide-list" id="guide-items"></ul>
+      <h3 class="guide-h">Accredited DMEPOS product codes</h3>
+      <div class="code-table" id="guide-codes"></div>
+      <div class="guide-note">Most insurance accepted — we verify your coverage before delivery. Equipment is delivered, set up, and fully supported by our team.</div>
+      <div class="guide-actions">
+        <a class="btn" href="tel:+12098987345">&#128222; Call to Order</a>
+        <a class="btn outline-dark" href="index.html#contact">Contact Us</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const GUIDES = {
+      "Mobility & Ambulatory": {
+        eyebrow: "Mobility & Daily Living",
+        desc: "Equipment that helps patients move safely and stay independent — at home or on the go. We help choose the right size and fit, deliver it, and show you how to use it.",
+        items: [
+          "Standard manual wheelchairs, sized and adjusted for the user",
+          "Folding and wheeled walkers for stability indoors and out",
+          "Canes and crutches in adjustable heights",
+          "Wheelchair accessories: cushions, anti-tippers, leg rests, and more"
+        ],
+        codes: [["M01", "Canes & Crutches"], ["M05", "Walkers"], ["M06", "Wheelchairs — Standard Manual"], ["M06A", "Manual Wheelchair Accessories"]]
+      },
+      "Hospital Beds": {
+        eyebrow: "Beds & Comfort",
+        desc: "Full-size hospital beds for recovery and long-term care at home, with adjustable head and foot positioning. We deliver, assemble, and set the bed up in the room where it's needed.",
+        items: [
+          "Electric hospital beds with powered positioning",
+          "Manual hospital beds with crank adjustment",
+          "Setup, safety check, and caregiver walkthrough included",
+          "Guidance on mattresses and bed safety for home use"
+        ],
+        codes: [["DM09", "Hospital Beds — Electric"], ["DM10", "Hospital Beds — Manual"]]
+      },
+      "Bathroom Safety": {
+        eyebrow: "Daily Living",
+        desc: "Practical equipment that makes toileting safer and more dignified for patients with limited mobility.",
+        items: [
+          "Bedside commodes in standard and heavy-duty sizes",
+          "Urinals and bedpans for bed-bound patients",
+          "Guidance on choosing the right option for the patient's mobility level"
+        ],
+        codes: [["DM02", "Commodes / Urinals / Bedpans"]]
+      },
+      "Diabetic Supplies": {
+        eyebrow: "Diabetes Care",
+        desc: "Everything for day-to-day diabetes management — from glucose monitoring to insulin pump therapy and protective footwear.",
+        items: [
+          "Blood glucose monitors, test strips, and lancets (non-mail order)",
+          "Insulin infusion pumps and pump supplies",
+          "Diabetic shoes and custom inserts to protect feet",
+          "Pharmacist guidance on testing routines and supplies"
+        ],
+        codes: [["DM05", "Blood Glucose Monitors & Supplies"], ["DM13", "Insulin Infusion Pumps"], ["DM25", "Insulin Infusion Pump Supplies"], ["S02", "Diabetic Shoes / Inserts"]]
+      },
+      "Infusion Pumps & Supplies": {
+        eyebrow: "Infusion Therapy",
+        desc: "Infusion pumps and supplies for home and facility-based therapy, backed by our infusion pharmacy expertise and 24/7 pharmacist support.",
+        items: [
+          "External (ambulatory) infusion pumps",
+          "Implanted infusion pump supplies and support",
+          "Tubing, cassettes, and pump supplies",
+          "Coordination with your infusion therapy prescriber"
+        ],
+        codes: [["DM12", "External Infusion Pumps"], ["DM24", "External Infusion Pump Supplies"], ["DM14", "Implanted Infusion Pumps & Supplies"]]
+      },
+      "Enteral Nutrition & Feeding": {
+        eyebrow: "Nutrition Support",
+        desc: "Complete tube-feeding support: formulas matched to the patient's needs plus all the equipment to deliver them safely.",
+        items: [
+          "Standard, high-protein, and disease-specific enteral formulas",
+          "Feeding pumps, bags, giving sets, and extensions",
+          "Adult and pediatric options",
+          "Scheduled refills so patients never run out"
+        ],
+        codes: [["PE03", "Enteral Nutrients"], ["PE04", "Enteral Equipment & Supplies"]]
+      },
+      "Parenteral Nutrition": {
+        eyebrow: "Nutrition Support",
+        desc: "IV nutrition prepared in our USP-compliant cleanrooms, with the equipment and supplies to administer it — a natural extension of our TPN compounding services.",
+        items: [
+          "Parenteral (IV) nutrients compounded to prescription",
+          "Administration equipment and supplies",
+          "Coordination with our TPN compounding pharmacists",
+          "Reliable delivery for home and facility patients"
+        ],
+        codes: [["PE05", "Parenteral Nutrients"], ["PE06", "Parenteral Equipment & Supplies"]]
+      },
+      "Nebulizers & Respiratory": {
+        eyebrow: "Respiratory Care",
+        desc: "Breathing treatment equipment for asthma, COPD, and other respiratory conditions — with supplies kept in stock so therapy never lapses.",
+        items: [
+          "Nebulizer machines for home breathing treatments",
+          "Masks, mouthpieces, tubing, and replacement kits",
+          "Pediatric and adult options",
+          "Pairs with prescriptions filled at our pharmacy"
+        ],
+        codes: [["R07", "Nebulizer Equipment & Supplies"]]
+      },
+      "Suction Pumps": {
+        eyebrow: "Clinical Equipment",
+        desc: "Suction equipment for airway clearance and gastric drainage, for both facility and home care settings.",
+        items: [
+          "Respiratory suction pumps for airway secretion management",
+          "Gastric suction pumps for post-surgical and GI care",
+          "Canisters, tubing, and catheter supplies",
+          "Setup and caregiver training included"
+        ],
+        codes: [["DM07", "Gastric Suction Pumps"], ["R10", "Respiratory Suction Pumps"]]
+      },
+      "Heat & Cold Therapy": {
+        eyebrow: "Pain Relief & Recovery",
+        desc: "Hot and cold application products for pain management, swelling reduction, and recovery after injury or surgery.",
+        items: [
+          "Heating pads and heat application products",
+          "Cold packs and cold therapy products",
+          "Guidance on safe use for skin protection"
+        ],
+        codes: [["DM08", "Heat & Cold Applications"]]
+      },
+      "Surgical Dressings": {
+        eyebrow: "Wound Care",
+        desc: "Wound care dressings for surgical sites, chronic wounds, and skin protection — with pharmacist guidance on dressing selection.",
+        items: [
+          "Sterile gauze, pads, and rolls",
+          "Advanced dressings for wound healing",
+          "Tapes, wraps, and securement supplies",
+          "Refill scheduling for ongoing wound care"
+        ],
+        codes: [["S01", "Surgical Dressings"]]
+      }
+    };
+
+    const overlay = document.getElementById("guide-overlay");
+
+    function slugify(name) {
+      return name.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+    }
+
+    function openGuide(name) {
+      const g = GUIDES[name];
+      if (!g) return;
+      document.getElementById("guide-eyebrow").textContent = g.eyebrow;
+      document.getElementById("guide-title").textContent = name;
+      document.getElementById("guide-desc").textContent = g.desc;
+      document.getElementById("guide-items").innerHTML = g.items.map(i => `<li>${i}</li>`).join("");
+      document.getElementById("guide-codes").innerHTML = g.codes.map(([code, label]) =>
+        `<div class="code-row"><span class="code-chip">${code}</span><span>${label}</span></div>`).join("");
+      overlay.hidden = false;
+      document.body.style.overflow = "hidden";
+      history.replaceState(null, "", "#" + slugify(name));
+    }
+
+    function closeGuide() {
+      overlay.hidden = true;
+      document.body.style.overflow = "";
+      history.replaceState(null, "", location.pathname);
+    }
+
+    document.querySelectorAll(".shop-card").forEach(card => {
+      const name = card.querySelector("h3").textContent.replace("→", "").trim();
+      card.setAttribute("tabindex", "0");
+      card.setAttribute("role", "button");
+      card.addEventListener("click", () => openGuide(name));
+      card.addEventListener("keydown", e => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openGuide(name); }
+      });
+    });
+
+    document.getElementById("guide-close").addEventListener("click", closeGuide);
+    overlay.addEventListener("click", e => { if (e.target === overlay) closeGuide(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape" && !overlay.hidden) closeGuide(); });
+
+    // Deep link: shop.html#hospital-beds opens that guide directly
+    if (location.hash) {
+      const want = location.hash.slice(1);
+      const match = Object.keys(GUIDES).find(n => slugify(n) === want);
+      if (match) openGuide(match);
+    }
+  </script>
+
 </body>
 </html>
