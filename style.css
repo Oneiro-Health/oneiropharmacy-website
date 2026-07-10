@@ -416,6 +416,17 @@ section h2 {
   overflow-wrap: anywhere;
 }
 
+.email-link {
+  color: var(--gray);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.email-link:hover {
+  color: var(--green-dark);
+  text-decoration: underline;
+}
+
 /* Alternating section background */
 .band {
   background: #f4f7fb;
