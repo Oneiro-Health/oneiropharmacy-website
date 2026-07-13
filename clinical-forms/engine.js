@@ -116,6 +116,15 @@
   });
   root.appendChild(formEl);
 
+  if (def.viewOnly) {
+    formEl.classList.add("view-only");
+    formEl.setAttribute("aria-readonly", "true");
+    formEl.querySelectorAll(".add-row").forEach(btn => btn.remove());
+    formEl.querySelectorAll("input, textarea, select, button").forEach(i => { i.disabled = true; });
+    root.appendChild(el("p", { class: "doc-id", text: "Document ID: " + def.docId + "  ·  Rev: 2026.C  ·  Confidential Clinical Record" }));
+    return;
+  }
+
   const actions = el("div", { class: "action-bar" });
   const btnPreview = el("button", { type: "button", text: "Preview PDF" });
   const btnPdf = el("button", { type: "button", class: "secondary", text: "Download PDF" });
@@ -400,11 +409,4 @@
     alert("Email submission is not connected yet. Please use Download PDF and fax it to 209-898-7347 or email info@oneiromanagementgroup.com.");
   });
 
-  /* ---------- view-only forms ---------- */
-
-  if (def.viewOnly) {
-    formEl.querySelectorAll("input, textarea, select, button").forEach(i => { i.disabled = true; });
-    actions.remove();
-    note.remove();
-  }
 })();

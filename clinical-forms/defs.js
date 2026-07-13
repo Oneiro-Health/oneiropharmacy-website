@@ -38,6 +38,7 @@
       title: title + " — Medical Necessity",
       subtitle: "Letter of Medical Necessity — Clinical Justification",
       docId: docId,
+      viewOnly: true,
       sections: [
         {
           title: "Patient & Item",
@@ -127,10 +128,7 @@
 
     /* ---------------- TPN ---------------- */
 
-    "tpn-mn": Object.assign(
-      mnForm("TPN / Parenteral Nutrition", "Formula / Additives", "CLIN-ONE-TPN-MN", "parenteral nutrition and additives"),
-      { viewOnly: true }
-    ),
+    "tpn-mn": mnForm("TPN / Parenteral Nutrition", "Formula / Additives", "CLIN-ONE-TPN-MN", "parenteral nutrition and additives"),
 
     /* ---------------- ENTERAL ---------------- */
 
@@ -393,4 +391,8 @@
 
     "incontinence-mn": mnForm("Incontinence Supplies", "Item / Supply", "CLIN-ONE-INC-MN", "supplies")
   };
+
+  Object.keys(window.FORM_DEFS).forEach(id => {
+    if (id.endsWith("-order")) window.FORM_DEFS[id].viewOnly = true;
+  });
 })();

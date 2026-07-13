@@ -199,15 +199,15 @@
 
       <h3 class="guide-h">Order forms</h3>
       <div class="form-links">
-        <a class="form-link" href="clinical-forms/form.html?f=dmepos-order">&#128221; DMEPOS Physician Order</a>
-        <a class="form-link" href="tpn-form/">&#128221; TPN Order</a>
-        <a class="form-link" href="clinical-forms/form.html?f=iv-antibiotics-order">&#128221; IV Antibiotics Order</a>
-        <a class="form-link" href="clinical-forms/form.html?f=enteral-order">&#128221; Enteral Formula Order</a>
-        <a class="form-link" href="clinical-forms/form.html?f=infant-formula-order">&#128221; Infant Formula Order</a>
-        <a class="form-link" href="clinical-forms/form.html?f=nebulizer-order">&#128221; Nebulizer Order</a>
-        <a class="form-link" href="clinical-forms/form.html?f=surgical-dressings-order">&#128221; Surgical Dressings Order</a>
-        <a class="form-link" href="clinical-forms/form.html?f=diabetic-supplies-order">&#128221; Diabetic Supplies Order</a>
-        <a class="form-link" href="clinical-forms/form.html?f=misc-dmepos-order">&#128221; Miscellaneous DMEPOS Order</a>
+        <a class="form-link" href="clinical-forms/form.html?f=dmepos-order">&#128221; DMEPOS Physician Order Form</a>
+        <a class="form-link" href="tpn-form/">&#128221; TPN Order Form</a>
+        <a class="form-link" href="clinical-forms/form.html?f=iv-antibiotics-order">&#128221; IV Antibiotics Order Form</a>
+        <a class="form-link" href="clinical-forms/form.html?f=enteral-order">&#128221; Enteral Formula Order Form</a>
+        <a class="form-link" href="clinical-forms/form.html?f=infant-formula-order">&#128221; Infant Formula Order Form</a>
+        <a class="form-link" href="clinical-forms/form.html?f=nebulizer-order">&#128221; Nebulizer Order Form</a>
+        <a class="form-link" href="clinical-forms/form.html?f=surgical-dressings-order">&#128221; Surgical Dressings Order Form</a>
+        <a class="form-link" href="clinical-forms/form.html?f=diabetic-supplies-order">&#128221; Diabetic Supplies Order Form</a>
+        <a class="form-link" href="clinical-forms/form.html?f=misc-dmepos-order">&#128221; Miscellaneous DMEPOS Order Form</a>
       </div>
 
       <h3 class="guide-h">Letters of medical necessity</h3>
@@ -230,7 +230,7 @@
     <div class="shop-cta">
       <h2>Ready to order?</h2>
       <p>Two easy ways: fill out the right order form online and fax or email it to us, or call <strong>(209) 898-7345</strong> to place an order, arrange delivery, or verify your insurance coverage. Our team is available 24/7.</p>
-      <a class="btn" href="#forms">Fill Out an Order Form</a>
+      <a class="btn" href="#forms">View Order Forms</a>
       <a class="btn outline-dark" href="tel:+12098987345">Call to Order</a>
     </div>
   </section>
@@ -253,7 +253,7 @@
       <div class="code-table" id="guide-codes"></div>
       <h3 class="guide-h">Forms &amp; documents</h3>
       <div class="form-links">
-        <a class="form-link highlight" id="guide-form-order" href="#">&#9997; Fill Out Order Form Online</a>
+        <a class="form-link highlight" id="guide-form-order" href="#">&#9997; Order Form</a>
         <a class="form-link" id="guide-form-mn" href="#">&#128196; Medical Necessity Form</a>
       </div>
       <div class="guide-note">To order: fill out the order form above and fax it to (209) 898-7347 or email info@oneiromanagementgroup.com — or simply call (209) 898-7345. Most insurance accepted; we verify your coverage before delivery, and equipment is delivered, set up, and fully supported by our team.</div>
@@ -389,17 +389,17 @@
 
     // Which clinical form pair serves each category
     const FORM_URLS = {
-      "Mobility & Ambulatory":        { order: "clinical-forms/form.html?f=dmepos-order", mn: "clinical-forms/form.html?f=dmepos-lmn" },
-      "Hospital Beds":                { order: "clinical-forms/form.html?f=dmepos-order", mn: "clinical-forms/form.html?f=dmepos-lmn" },
-      "Bathroom Safety":              { order: "clinical-forms/form.html?f=dmepos-order", mn: "clinical-forms/form.html?f=dmepos-lmn" },
-      "Diabetic Supplies":            { order: "clinical-forms/form.html?f=diabetic-supplies-order", mn: "clinical-forms/form.html?f=diabetic-supplies-mn" },
-      "Infusion Pumps & Supplies":    { order: "clinical-forms/form.html?f=dmepos-order", mn: "clinical-forms/form.html?f=dmepos-lmn" },
-      "Enteral Nutrition & Feeding":  { order: "clinical-forms/form.html?f=enteral-order", mn: "clinical-forms/form.html?f=enteral-mn" },
-      "Parenteral Nutrition":         { order: "tpn-form/", mn: "clinical-forms/form.html?f=tpn-mn" },
-      "Nebulizers & Respiratory":     { order: "clinical-forms/form.html?f=nebulizer-order", mn: "clinical-forms/form.html?f=nebulizer-mn" },
-      "Suction Pumps":                { order: "clinical-forms/form.html?f=dmepos-order", mn: "clinical-forms/form.html?f=dmepos-lmn" },
-      "Heat & Cold Therapy":          { order: "clinical-forms/form.html?f=misc-dmepos-order", mn: "clinical-forms/form.html?f=misc-dmepos-mn" },
-      "Surgical Dressings":           { order: "clinical-forms/form.html?f=surgical-dressings-order", mn: "clinical-forms/form.html?f=surgical-dressings-mn" }
+      "Mobility & Ambulatory":        { order: "clinical-forms/form.html?f=dmepos-order", mn: "clinical-forms/form.html?f=dmepos-lmn", orderLabel: "DMEPOS Physician Order Form" },
+      "Hospital Beds":                { order: "clinical-forms/form.html?f=dmepos-order", mn: "clinical-forms/form.html?f=dmepos-lmn", orderLabel: "DMEPOS Physician Order Form" },
+      "Bathroom Safety":              { order: "clinical-forms/form.html?f=dmepos-order", mn: "clinical-forms/form.html?f=dmepos-lmn", orderLabel: "DMEPOS Physician Order Form" },
+      "Diabetic Supplies":            { order: "clinical-forms/form.html?f=diabetic-supplies-order", mn: "clinical-forms/form.html?f=diabetic-supplies-mn", orderLabel: "Diabetic Supplies Order Form" },
+      "Infusion Pumps & Supplies":    { order: "clinical-forms/form.html?f=dmepos-order", mn: "clinical-forms/form.html?f=dmepos-lmn", orderLabel: "DMEPOS Physician Order Form" },
+      "Enteral Nutrition & Feeding":  { order: "clinical-forms/form.html?f=enteral-order", mn: "clinical-forms/form.html?f=enteral-mn", orderLabel: "Enteral Formula Order Form" },
+      "Parenteral Nutrition":         { order: "tpn-form/", mn: "clinical-forms/form.html?f=tpn-mn", orderLabel: "TPN Order Form" },
+      "Nebulizers & Respiratory":     { order: "clinical-forms/form.html?f=nebulizer-order", mn: "clinical-forms/form.html?f=nebulizer-mn", orderLabel: "Nebulizer Order Form" },
+      "Suction Pumps":                { order: "clinical-forms/form.html?f=dmepos-order", mn: "clinical-forms/form.html?f=dmepos-lmn", orderLabel: "DMEPOS Physician Order Form" },
+      "Heat & Cold Therapy":          { order: "clinical-forms/form.html?f=misc-dmepos-order", mn: "clinical-forms/form.html?f=misc-dmepos-mn", orderLabel: "Miscellaneous DMEPOS Order Form" },
+      "Surgical Dressings":           { order: "clinical-forms/form.html?f=surgical-dressings-order", mn: "clinical-forms/form.html?f=surgical-dressings-mn", orderLabel: "Surgical Dressings Order Form" }
     };
 
     const overlay = document.getElementById("guide-overlay");
@@ -417,9 +417,11 @@
       document.getElementById("guide-items").innerHTML = g.items.map(i => `<li>${i}</li>`).join("");
       document.getElementById("guide-codes").innerHTML = g.codes.map(([code, label]) =>
         `<div class="code-row"><span class="code-chip">${code}</span><span>${label}</span></div>`).join("");
-      const urls = FORM_URLS[name] || { order: "clinical-forms/form.html?f=misc-dmepos-order", mn: "clinical-forms/form.html?f=misc-dmepos-mn" };
+      const urls = FORM_URLS[name] || { order: "clinical-forms/form.html?f=misc-dmepos-order", mn: "clinical-forms/form.html?f=misc-dmepos-mn", orderLabel: "Miscellaneous DMEPOS Order Form" };
       document.getElementById("guide-form-mn").href = urls.mn;
-      document.getElementById("guide-form-order").href = urls.order;
+      const orderLink = document.getElementById("guide-form-order");
+      orderLink.href = urls.order;
+      orderLink.textContent = "\u270d " + urls.orderLabel;
       overlay.hidden = false;
       document.body.style.overflow = "hidden";
       history.replaceState(null, "", "#" + slugify(name));
