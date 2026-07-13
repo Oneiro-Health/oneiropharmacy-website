@@ -127,7 +127,10 @@
 
     /* ---------------- TPN ---------------- */
 
-    "tpn-mn": mnForm("TPN / Parenteral Nutrition", "Formula / Additives", "CLIN-ONE-TPN-MN", "parenteral nutrition and additives"),
+    "tpn-mn": Object.assign(
+      mnForm("TPN / Parenteral Nutrition", "Formula / Additives", "CLIN-ONE-TPN-MN", "parenteral nutrition and additives"),
+      { viewOnly: true }
+    ),
 
     /* ---------------- ENTERAL ---------------- */
 

@@ -179,7 +179,7 @@
   }
 
   formEl.addEventListener("input", save);
-  restore();
+  if (!def.viewOnly) restore();
 
   btnClear.addEventListener("click", () => {
     if (!confirm("Clear all entered data?")) return;
@@ -399,4 +399,12 @@
   btnSubmit.addEventListener("click", () => {
     alert("Email submission is not connected yet. Please use Download PDF and fax it to 209-898-7347 or email info@oneiromanagementgroup.com.");
   });
+
+  /* ---------- view-only forms ---------- */
+
+  if (def.viewOnly) {
+    formEl.querySelectorAll("input, textarea, select, button").forEach(i => { i.disabled = true; });
+    actions.remove();
+    note.remove();
+  }
 })();

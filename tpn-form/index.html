@@ -249,14 +249,7 @@
         <label>Prescriber Signature<input name="prescriberSignature" type="text" placeholder="Typed name or signature note" /></label>
       </section>
 
-      <section class="action-bar" aria-label="Form actions">
-        <button type="button" id="previewBtn">Preview PDF</button>
-        <button type="button" id="downloadBtn" class="secondary">Download PDF</button>
-        <button type="submit" class="primary">Submit &amp; Email PDF</button>
-      </section>
-
       <div id="statusMessage" class="status-inline" role="status" aria-live="polite"></div>
-      <p class="note">The email button requires a backend endpoint. Set it in <code>script.js</code> after your hosting platform is chosen.</p>
     </form>
 
     <div id="noticeModal" class="notice-modal" role="dialog" aria-modal="true" aria-labelledby="noticeTitle" hidden>
@@ -269,7 +262,12 @@
 
   </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha384-JcnsjUPPylna1s1fvi1u12X5qjY5OL56iySh75FdtrwhO/SWXgMjoVqcKyIIWOLk" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="script.js"></script>
+  <script>
+    // View-only: the form is shown for reference and cannot be filled in
+    document.querySelectorAll("#tpnForm input, #tpnForm select, #tpnForm textarea, #tpnForm button")
+      .forEach(el => { el.disabled = true; });
+  </script>
 </body>
 </html>

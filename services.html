@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | Oneiro Pharmacy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="inner">
+      <div><span class="dot">●</span>Open 24/7 — 365 days a year</div>
+      <div>Call us today: <strong>(209) 898-7345</strong></div>
+    </div>
+  </div>
+
+  <header>
+    <div class="nav-wrap">
+      <a class="logo" href="index.html">
+        <span class="logo-name">ONEIRO <b>PHARMACY</b></span>
+        <span class="logo-sub">At Your Care &middot; Stockton, CA</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop Medical Supplies</a></li>
+          <li><a href="services.html" class="active">Our Services</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <a class="phone-pill" href="tel:+12098987345">&#128222; (209) 898-7345</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="centered">
+    <p class="eyebrow">What We Do</p>
+    <h2>Our Services</h2>
+    <p class="section-sub">Comprehensive infusion, compounding, and long-term care solutions.</p>
+    <div class="cards">
+      <a class="card service-card" href="services/tpn.html">
+        <div class="icon">&#129656;</div>
+        <h3>Total Parenteral Nutrition (TPN)</h3>
+        <p>Customized TPN formulations compounded to each patient's exact nutritional requirements.</p>
+      </a>
+      <a class="card service-card" href="services/iv-antibiotics.html">
+        <div class="icon">&#128138;</div>
+        <h3>IV Antibiotic Therapy</h3>
+        <p>Intravenous antibiotic preparations for hospitals and acute care facilities, with STAT turnaround.</p>
+      </a>
+      <a class="card service-card" href="services/enteral-formula.html">
+        <div class="icon">&#127869;</div>
+        <h3>Enteral Formula</h3>
+        <p>Enteral nutrition formulas and feeding supplies for your patients.</p>
+      </a>
+      <a class="card service-card" href="services/infant-formula.html">
+        <div class="icon">&#127868;</div>
+        <h3>Infant Formula</h3>
+        <p>Infant and pediatric formulas for hospitals, clinics, and families.</p>
+      </a>
+      <a class="card service-card" href="services/immunoglobulin.html">
+        <div class="icon">&#128737;</div>
+        <h3>Immunoglobulin Therapy</h3>
+        <p>IVIG and SCIG therapies for immune-deficient and autoimmune patients.</p>
+      </a>
+      <a class="card service-card" href="services/chemotherapy.html">
+        <div class="icon">&#127807;</div>
+        <h3>Chemotherapy &amp; Oncology</h3>
+        <p>Hazardous drug compounding under USP &lt;800&gt; for oncology infusion programs.</p>
+      </a>
+      <a class="card service-card" href="services/sterile-compounding.html">
+        <div class="icon">&#9879;</div>
+        <h3>Sterile Compounding</h3>
+        <p>Batch compounding, ophthalmic and procedure-specific formulations, hydration, transplant, and alpha-1 therapies.</p>
+      </a>
+      <a class="card service-card" href="services/long-term-care.html">
+        <div class="icon">&#127968;</div>
+        <h3>Long-Term Care Solutions</h3>
+        <p>Compliance and multi-dose packaging, DME distribution, enteral nutrition, and emergency services.</p>
+      </a>
+    </div>
+
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Oneiro Pharmacy &middot; 8026 Lorraine Avenue, Suite 207, Stockton, CA 95210 &middot; (209) 898-7345</p>
+    <p>Licensed 503A Pharmacy &middot; USP &lt;797&gt; &amp; &lt;800&gt; Compliant &middot; DMEPOS Accredited</p>
+  </footer>
+
+  <script>
+    // Legacy deep links (?tab=tpn etc.) now redirect to the per-service pages
+    const pages = ["tpn", "iv-antibiotics", "enteral-formula", "infant-formula",
+                   "immunoglobulin", "chemotherapy", "sterile-compounding", "long-term-care"];
+    const requested = new URLSearchParams(location.search).get("tab");
+    if (pages.includes(requested)) location.replace("services/" + requested + ".html");
+  </script>
+
+</body>
+</html>
